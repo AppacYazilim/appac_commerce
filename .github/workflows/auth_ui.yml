@@ -51,7 +51,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_ACCESS }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages publish build --project-name=appaccommerce --commit-hash $GITHUB_SHA --branch $GITHUB_REF_NAME --commit-message ${{ github.event.head_commit.message }} --commit-dirty false
+          command: pages publish build --project-name=appaccommerce --commit-hash $GITHUB_SHA --branch $GITHUB_REF_NAME --commit-dirty false
       - name: Get Deployment
         id: get-deployment
         run: 
