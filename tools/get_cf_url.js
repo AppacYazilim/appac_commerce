@@ -14,6 +14,7 @@ fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}/pages/projects
 })
 .then(response => response.json())
 .then(data => {
+  console.log("Finding ", commitHash);
   const build = data.result.find(build => build.deployment_trigger.metadata.commit_hash === commitHash);
   if (build) {
     console.log(build.url);
