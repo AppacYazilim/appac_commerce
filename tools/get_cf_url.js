@@ -6,7 +6,7 @@ const accountId = process.argv[3];
 const apiKey = process.argv[2];
 const commitHash = process.argv[4];
 
-fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}/pages/projects/auth/deployments`, {
+fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}/pages/projects/appaccommerce/deployments`, {
   headers: {
     "Authorization": `Bearer ${apiKey}`,
     "Content-Type": "application/json"
