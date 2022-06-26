@@ -1,9 +1,13 @@
 name: Cloudflare Pages Build
 on:
   pull_request:
+    branches:
+      - main
+      - production
   push:
     branches:
       - main
+      - production
 
 jobs:
   build:
