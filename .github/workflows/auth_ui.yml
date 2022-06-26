@@ -1,4 +1,4 @@
-name: UI Build
+name: Cloudflare Pages Build
 on:
   pull_request:
   push:
@@ -61,7 +61,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     environment:
       name: Staging
-      url: ${{ steps.get-deployment.outputs.url }}
+      url: https://main.appaccommerce.pages.dev
     steps:
       - name: DONE
         run: echo 'DONE'
@@ -71,7 +71,7 @@ jobs:
     if: github.ref == 'refs/heads/production'
     environment:
       name: Production
-      url: ${{ steps.get-deployment.outputs.url }}
+      url: https://appaccommerce.pages.dev
     steps:
       - name: DONE
         run: echo 'DONE'
