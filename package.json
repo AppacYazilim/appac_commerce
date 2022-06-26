@@ -11,6 +11,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
@@ -24,7 +25,9 @@
     "start": "wrangler pages dev -- yarn react-scripts start",
     "build": "rm -rf dist && GENERATE_SOURCEMAP=false react-scripts build && cp -r functions build/.",
     "submit": "wrangler pages publish build",
-    "presubmit": "yarn build"
+    "test": "react-scripts test",
+    "presubmit": "yarn build",
+    "lint": "yarn eslint --max-warnings 0 ."
   },
   "workspaces": [
     "tools"
@@ -38,9 +41,18 @@
     }
   },
   "eslintConfig": {
+    "plugins": ["prettier"],
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "error",
+      "prettier/prettier": "warn"
+    },
+    "ignorePatterns": [
+      "build/*"
     ]
   },
   "lint-staged": {
